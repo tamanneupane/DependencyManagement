@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    defaultConfig {
+        applicationId "dependencymanagement.taman.peacenepal.dependencymanagement"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode build_versions.version_code
+        versionName build_versions.version_name
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation deps.support.annotations
+    implementation deps.support.app_compat
+    implementation deps.support.constraintLayout
+    implementation deps.support.v13
+    implementation deps.support.design
+    implementation deps.support.support_vector_drawable
+    implementation deps.support.cardview
+    implementation deps.support.recyclerview
+    implementation deps.support.multidex
+
+    implementation deps.butterknife.main
+    annotationProcessor deps.butterknife.processor
+
+    implementation deps.images.fresco
+    implementation deps.images.glide.glide
+    annotationProcessor deps.images.glide.compiler
+
+
+    implementation deps.arch.lifecycle.runtime
+    implementation deps.arch.lifecycle.common_java8
+    implementation deps.arch.lifecycle.extensions
+
+    //Room Database
+    implementation deps.arch.persistence.room.runtime
+    annotationProcessor deps.arch.persistence.room.compiler
+    implementation deps.arch.persistence.room.rxjava2
+
+    //Logging
+    implementation deps.logging.jakewharton.timber
+    implementation deps.logging.facebook.stetho
+
+
+    //network
+    implementation deps.retrofit2.retrofit
+    implementation deps.retrofit2.converter_gson
+    implementation deps.retrofit2.converter_scalars
+    implementation deps.retrofit2.rx_java2_adapter
+    implementation deps.okhttp3.logging_interceptor
+    implementation deps.okhttp3.okhttp
+
+    implementation deps.google.maps.play_service_map
+    implementation deps.google.firebase.firebase_messaging
+    implementation deps.google.guava
+
+    implementation deps.time.joda_time
+
+
+    androidTestImplementation deps.fastlane.screengrab
+
+    androidTestImplementation deps.support.test.uiautomator_v18
+    androidTestImplementation deps.support.test.espresso
+    androidTestImplementation deps.support.test.runner
+    androidTestImplementation deps.support.test.rules
+    testImplementation deps.unittest.junit
+}

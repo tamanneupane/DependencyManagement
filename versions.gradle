@@ -1,0 +1,147 @@
+ext.deps = [:]
+
+def versions = [:]
+    versions.android_gradle_plugin = "3.1.0"
+    versions.google_service = "3.2.0"
+    versions.support = "27.1.0"
+    versions.constraintLayout = "1.0.2"
+    versions.picasso = "2.5.2"
+    versions.glide = "4.6.1"
+    versions.fresco = "1.7.1"
+    versions.butterknife = "8.8.1"
+    versions.lifecycle = "1.1.1"
+    versions.room = "1.0.0"
+    versions.timber = "4.6.0"
+    versions.retrofit = "2.3.0"
+    versions.okhttp3 = "3.9.1"
+    versions.stetho = "1.5.0"
+    versions.google = "12.0.1"
+    versions.espresso = "3.0.1"
+    versions.test = "1.0.1"
+    versions.uiautomator = "2.1.3"
+    versions.firebase = "12.0.1"
+    versions.guava = "24.1-android"
+    versions.multidex = "1.0.3"
+    versions.saripaar = "2.0.3"
+    versions.joda_time = "2.9.9"
+    versions.screengrab = "1.1.0"
+    versions.junit = "4.12"
+
+
+
+def deps = [:]
+    deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+    deps.google_service = "com.google.gms:google-services:$versions.google_service"
+ext.deps = deps
+
+def build_versions = [:]
+    build_versions.min_sdk = 19
+    build_versions.target_sdk = 27
+    build_versions.build_tools = "27.0.3"
+    build_versions.version_code = 1
+    build_versions.version_name = "1.0.0"
+ext.build_versions = build_versions
+
+
+def support = [:]
+    support.annotations = "com.android.support:support-annotations:$versions.support"
+    support.app_compat = "com.android.support:appcompat-v7:$versions.support"
+    support.recyclerview = "com.android.support:recyclerview-v7:$versions.support"
+    support.cardview = "com.android.support:cardview-v7:$versions.support"
+    support.recyclerview = "com.android.support:recyclerview-v7:$versions.support"
+    support.design = "com.android.support:design:$versions.support"
+    support.support_vector_drawable = "com.android.support:support-vector-drawable:$versions.support"
+    support.v4 = "com.android.support:support-v4:$versions.support"
+    support.v13 = "com.android.support:support-v13:$versions.support"
+    support.core_utils = "com.android.support:support-core-utils:$versions.support"
+    support.constraintLayout = "com.android.support.constraint:constraint-layout:$versions.constraintLayout"
+    support.multidex = "com.android.support:multidex:$versions.multidex"
+    def test = [:]
+        test.espresso = "com.android.support.test.espresso:espresso-core:$versions.espresso"
+        test.runner = "com.android.support.test:runner:$versions.test"
+        test.rules = "com.android.support.test:rules:$versions.test"
+        test.uiautomator_v18 = "com.android.support.test.uiautomator:uiautomator-v18:$versions.uiautomator"
+    support.test = test
+deps.support = support
+
+def arch = [:]
+    def lifecycle = [:]
+        lifecycle.runtime = "android.arch.lifecycle:runtime:$versions.lifecycle"
+        lifecycle.common_java8 = "android.arch.lifecycle:common-java8:$versions.lifecycle"
+        lifecycle.extensions= "android.arch.lifecycle:extensions:$versions.lifecycle"
+    arch.lifecycle = lifecycle
+
+    def persistence = [:]
+        def room = [:]
+            room.runtime = "android.arch.persistence.room:runtime:$versions.room"
+            room.compiler = "android.arch.persistence.room:compiler:$versions.room"
+            room.rxjava2 = "android.arch.persistence.room:rxjava2:$versions.room"
+        persistence.room = room
+    arch.persistence = persistence
+deps.arch = arch
+
+def google = [:]
+    def maps = [:]
+        maps.play_service_map = "com.google.android.gms:play-services-maps:$versions.google"
+    google.maps = maps
+    def firebase = [:]
+        firebase.firebase_messaging = "com.google.firebase:firebase-messaging:$versions.firebase"
+    google.firebase = firebase
+    google.guava = "com.google.guava:guava:$versions.guava"
+deps.google = google
+
+def retrofit2 = [:]
+    retrofit2.retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    retrofit2.converter_gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+    retrofit2.converter_scalars = "com.squareup.retrofit2:converter-scalars:$versions.retrofit"
+    retrofit2.rx_java2_adapter = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+deps.retrofit2 = retrofit2
+
+def okhttp3 = [:]
+    okhttp3.okhttp = "com.squareup.okhttp3:okhttp:$versions.okhttp3"
+    okhttp3.logging_interceptor = "com.squareup.okhttp3:logging-interceptor:$versions.okhttp3"
+deps.okhttp3 = okhttp3
+
+def logging = [:]
+    def jakewharton = [:]
+        jakewharton.timber = "com.jakewharton.timber:timber:$versions.timber"
+    logging.jakewharton = jakewharton
+    def facebook = [:]
+        facebook.stetho = "com.facebook.stetho:stetho:$versions.stetho"
+    logging.facebook = facebook
+deps.logging = logging
+
+
+def images = [:]
+    images.picasso = "com.squareup.picasso:picasso:$versions.picasso"
+    images.fresco = "com.facebook.fresco:fresco:$versions.fresco"
+    def glide = [:]
+        glide.glide = "com.github.bumptech.glide:glide:$versions.glide"
+        glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+    images.glide = glide
+deps.images = images
+
+def butterknife = [:]
+    butterknife.main = "com.jakewharton:butterknife:$versions.butterknife"
+    butterknife.processor = "com.jakewharton:butterknife-compiler:$versions.butterknife"
+deps.butterknife = butterknife
+
+def time = [:]
+    time.joda_time = "joda-time:joda-time:$versions.joda_time"
+deps.time = time
+
+def fastlane = [:]
+    fastlane.screengrab = "tools.fastlane:screengrab:$versions.screengrab"
+deps.fastlane = fastlane
+
+def unittest = [:]
+    unittest.junit = "junit:junit:$versions.junit"
+deps.unittest = unittest
+
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    handler.maven { url 'https://jitpack.io' }
+}
+ext.addRepos = this.&addRepos
